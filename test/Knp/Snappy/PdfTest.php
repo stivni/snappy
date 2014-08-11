@@ -14,10 +14,10 @@ class PdfTest extends \PHPUnit_Framework_TestCase
     {
         $testObject = new PdfSpy();
 
-        $testObject->getOutputFromHtml('<html></html>', ['footer-html' => 'footer']);
+        $testObject->getOutputFromHtml('<html></html>', array('footer-html' => 'footer'));
         $this->assertRegExp("/emptyBinary --lowquality --footer-html '.*' '.*' '.*'/", $testObject->getLastCommand());
 
-        $testObject->getOutputFromHtml('<html></html>', []);
+        $testObject->getOutputFromHtml('<html></html>', array());
         $this->assertRegExp("/emptyBinary --lowquality '.*' '.*'/", $testObject->getLastCommand());
     }
 }
